@@ -1,0 +1,16 @@
+{% component 'block-hero', params={ title: 'Aulas', tltExtension: 'de Dança', img: 'hero-aulas.jpg', alt: 'cabeçalho das aulas' } %}
+<div class="container-parallax">
+    <div class="box-content container" data-ani-type="fade-top">
+        <div class="row">
+            <div class="col-lg-8">
+                <p>Além de uma expressão artística a <strong>dança</strong> traz benefícios ao corpo e mente, ela melhora a auto-estima, coordenação motora, alongamento, musicalidade, estimula a criatividade, disciplina e ainda ajuda no emagrecimento.</p>
+                <p>Quem dança é mais feliz. Então diga sim a felicidade e vem dançar!</p>
+                <p><a href="contato" title="Agende uma aula de dança gratuita">Agende uma aula gratuita conosco</a> e encante-se!!!</p>
+            </div>
+        </div>
+    </div>
+
+    {% component 'block-galery', aulas, { title: false, slider: false } %}
+    {% component 'block-galery', professores, { titleExtension: false }, tag='.veil' %}
+    {% component 'block-schedule', schedules, { class: 'todas' } %}
+</div>

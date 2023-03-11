@@ -1,0 +1,22 @@
+// Mixins
+#m {
+    .group() {
+        zoom: 1;
+
+        &:after,
+        &:before {
+            content: '';
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+}
+
+// Extends
+.rmvtxt {
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+}

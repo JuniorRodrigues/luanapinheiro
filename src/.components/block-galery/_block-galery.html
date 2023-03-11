@@ -1,0 +1,133 @@
+{#
+    PARAMS
+        slider
+            Default     : boolean
+            Create a slider
+
+        title
+            Default     : data.title
+            Arguments   : [ string ], [ boolean: false ]
+            Add a title in the block
+
+        titleTag
+            Default     : h2
+            Arguments   : tag name
+
+        titleExtension
+            Default     : data.titleExtension
+            Arguments   : string, false boolean
+            Add title extension with a highlight
+
+        TAG
+            .mandala
+            .veil
+
+        filter
+            Arguments  : [ string ]
+            Filtra os resultados
+#}
+
+{% set subtitleTag = 'h2' if params.title == false else 'h3' %}
+<div class="wrap-slider container {{ 'no-slider' if params.slider == false }}">
+    {% if params.title != false %}
+        {% set sectionTitle = params.title if params.title else data.title %}
+        <div class="container">
+            <{{ params.titleTag if params.titleTag else 'h2' }} class="tlt-section">
+                {% if params.url %}
+                <a href="{{ params.url }}" title="{{ sectionTitle }}">
+                {% endif %}
+
+                    <span data-ani-type="chars" data-ani-show="70">{{ sectionTitle }}</span>
+                    {% if params.titleExtension %}
+                    <span class="highlight" data-ani-type="chars" data-ani-show="70">{{ params.titleExtension | safe }}</span>
+                    {% elif (params.titleExtension != false) and (data.titleExtension != false) %}
+                    <span class="highlight" data-ani-type="chars" data-ani-show="70">{{ data.titleExtension | safe }}</span>
+                    {% endif %}
+
+                {% if params.url %}
+                </a>
+                {% endif %}
+            </{{ params.titleTag if params.titleTag else 'h2' }}>
+        </div>
+    {% endif %}
+
+    {% if data.mainDescription %}
+        <div class="container" data-ani-type="fade-top">
+            <div class="main-description">
+                {{ data.mainDescription | safe }}
+            </div>
+        </div>
+    {% endif %}
+    <div data-ani-type="fade-top">
+        <div id="slide-{{ data.id }}" class="slider {{'no-slider row' if params.slider === false }}">
+            {% for photo in data.photos %}
+                {% if params.filter %}
+                    {% for aula in photo.classes %}
+                        {% if aula == params.filter %}
+                            <section class="item {{ 'col-md-4' if params.slider == false }}">
+                                {% if photo.date %}
+                                <time class="datetime" datetime="{{ photo.dateId if photo.dateId }}">{{ photo.date | safe }}</time>
+                                {% endif %}
+
+                                {% if photo.url %}
+                                <a href="{{ photo.url }}" class="item-link" target="{{ '_blank' if photo.external else '_self' }}" title="{{ photo.title }}">
+                                {% endif %}
+                                    <figure class="img-container">
+                                        <img loading="lazy" width="360" height="360" src="{{ pathImg }}/{{ photo.imgSrc }}" alt="{{ photo.imgAlt }}">
+                                    </figure>
+                                {% if photo.url %}
+                                </a>
+                                {% endif %}
+
+                                <{{ subtitleTag }} class="title">
+                                    {% if photo.url %}
+                                    <a href="{{ photo.url }}" title="Aula de {{ photo.title }}">
+                                    {% endif %}
+                                        {{ photo.title | safe }}
+                                    {% if photo.url %}
+                                    </a>
+                                    {% endif %}
+                                </{{ subtitleTag }}>
+
+                                {% if photo.resume %}
+                                <p class="resume">{{ photo.resume | safe }}</p>
+                                {% endif %}
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <section class="item {{ 'col-sm-6 col-md-4' if params.slider == false }}">
+                        {% if photo.date %}
+                        <time class="datetime" datetime="{{ photo.dateId if photo.dateId }}">{{ photo.date | safe }}</time>
+                        {% endif %}
+
+                        {% if photo.url %}
+                        <a href="{{ photo.url }}" class="item-link" target="{{ '_blank' if photo.external else '_self' }}" rel="{{ 'noopener' if photo.external }}" title="{{ photo.title }}">
+                        {% endif %}
+                            <figure class="img-container">
+                                <img loading="lazy" width="360" height="360" src="{{ pathImg }}/{{ photo.imgSrc }}" alt="{{ photo.imgAlt }}">
+                            </figure>
+                        {% if photo.url %}
+                        </a>
+                        {% endif %}
+
+                        <{{ subtitleTag }} class="title">
+                            {% if photo.url %}
+                            <a href="{{ photo.url }}" title="Aula de {{ photo.title }}">
+                            {% endif %}
+                                {{ photo.title | safe }}
+                                <svg class="icon-link" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve"> <g xmlns="http://www.w3.org/2000/svg"> <path d="M60.437 30.044a3 3 0 0 0-3 3v13.577c0 4.162-3.387 7.549-7.549 7.549h-35.78c-4.162 0-7.548-3.387-7.548-7.549V17.379c0-4.162 3.386-7.548 7.548-7.548h18.935a3 3 0 1 0 0-6H14.107C6.637 3.831.559 9.909.559 17.379v29.243c0 7.471 6.078 13.549 13.548 13.549h35.78c7.471 0 13.549-6.078 13.549-13.549V33.044a2.999 2.999 0 0 0-2.999-3z" data-original="#000000" /> <path d="M63.433 6.751a3.04 3.04 0 0 0-.044-.434c-.245-1.409-1.535-2.469-2.953-2.488H46.741a3 3 0 1 0 0 6h5.999L31.012 29.792a2.999 2.999 0 1 0 4.059 4.417l22.369-20.55v6.331a3 3 0 1 0 6 0V6.829c0-.027-.007-.051-.007-.078z" data-original="#000000" /> </g> </svg>
+                                </{{ subtitleTag }}>
+                            {% if photo.url %}
+                            </a>
+                            {% endif %}
+
+                        {% if photo.resume %}
+                        <p class="resume">{{ photo.resume | safe }}</p>
+                        {% endif %}
+                    </section>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{% component 'block-hero', params={ title: 'Aulas', tltExtension: 'de Dança', img: 'hero-aulas.jpg', alt: 'cabeçalho das aulas' } %}
+<div class="container-parallax">
+    <div class="box-content container" data-ani-type="fade-top">
+        <div class="row">
+            <div class="col-lg-8">
+                <p>Conheça alguns dos professores que ministram as aulas do nosso espaço.</p>
+                <p>Quem dança é mais feliz. Então diga sim a felicidade e vem dançar!</p>
+                <p><a href="contato" title="Agende uma aula de dança gratuita">Agende uma aula gratuita conosco</a> e encante-se!!!</p>
+            </div>
+        </div>
+    </div>
+
+    {% component 'block-galery', professores, { title: false, slider: false } %}
+    {% component 'block-galery', aulas, { titleExtension: false }, tag='.veil' %}
+    {% component 'block-schedule', schedules, { class: 'todas' } %}
+</div>

@@ -1,0 +1,14 @@
+{% set activePage = 'home' %}
+{% extends ".templates/_base.html" %}
+
+{% block content %}
+<main id="goToContent">
+    {% component 'home-hero', tag='[data-ani-type="sm-parallax"]' %}
+    <div class="container-parallax">
+        {% component 'block-galery', aulas, { titleTag: 'h2'}, tag='.mandala#aulas' %}
+        {% component 'block-static-galery' %}
+        {% component 'home-intro', tag="#intro" %}
+        {% component 'block-galery', eventos, { titleTag: 'h2'}, tag='#eventos.veil' %}
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,7 @@
+<div class="slider-space container" data-ani-type="fade-top">
+{% for photo in data.photos %}
+    <figure class="img-container">
+        <img src="{{ pathImg }}/espaco/{{ params.id }}/{{ photo }}" alt="{{ data.imgAlt }}">
+    </figure>
+{% endfor %}
+</div>

@@ -1,0 +1,90 @@
+& {
+    display: none;
+}
+
+@media screen {
+    @media (max-width: @sm-max) {
+        @width: 36px;
+        @height: 28px;
+
+        display: inline-block;
+        width: @width;
+        height: @height;
+        z-index: 2;
+
+        position: absolute;
+        top: 18px;
+        right: 20px;
+
+        .menu-icon_box {
+            display: inline-block;
+            width: @width;
+            height: @height;
+            position: relative;
+            text-align: left;
+        }
+
+        .menu-icon_line {
+            .gradient();
+
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+
+            &.menu-icon_line--1 {
+                top: 2px;
+                transition: top .2s .25s, transform .2s;
+            }
+
+            &.menu-icon_line--2 {
+                top: 12px;
+                transition: opacity 0ms 300ms;
+            }
+
+            &.menu-icon_line--3 {
+                top: 22px;
+                transition: top .1s 300ms, transform .2s;
+            }
+        }
+
+        &.opened {
+            .menu-icon_box {
+                transform: scale3d(0.9, 0.9, 0.9);
+            }
+
+            .menu-icon_line {
+                top: 12px;
+                width: 36px;
+                background: #fff;
+
+                &--1 {
+                    left: 0;
+                    transform: rotate3d(0, 0, 1, 45deg);
+                    transition: top .1s, transform .2s .25s;
+                }
+
+                &--2 {
+                    opacity: 0;
+                    transition: opacity .2s;
+                }
+
+                &--3 {
+                    transform: rotate3d(0, 0, 1, -45deg);
+                    transition: top .2s, transform .2s .25s;
+                }
+            }
+        }
+
+        body:not(#index) & {
+            top: 24px;
+        }
+    }
+
+    @media (width: 768px) and (height: 1024px) {
+        body#index & .menu-icon_line {
+            background: #fff;
+        }
+    }
+}

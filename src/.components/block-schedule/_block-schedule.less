@@ -1,0 +1,126 @@
+& {
+    figure {
+        margin-bottom: 30px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .tlt-section {
+        font-size: responsive 24px 30px;
+    }
+
+    .box-description p {
+        margin-bottom: 1.6em;
+    }
+
+    .schedule {
+        padding-top: 12px;
+        padding-bottom: 32px;
+        font-size: 16px;
+
+        li {
+            line-height: 1.6em;
+            color: @color-txt-5;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .btn-primary {
+        width: 100%;
+
+        &.active {
+            .svg-arrow-down {
+                transform: rotate(180deg) translateY(-2px);
+            }
+        }
+
+        .svg-arrow-down {
+            float: right;
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            transform: translateY(4px);
+            transition: transform .3s ease-out-quad;
+
+            svg {
+                fill: @color-bg-1;
+            }
+        }
+    }
+
+    .btn-default {
+        margin-top: 1.6em;
+        padding-right: 59px;
+
+        .txt-btn {
+            vertical-align: sub;
+        }
+
+        .svg-download {
+            width: 29px;
+            height: 29px;
+            position: absolute;
+            right: 15px;
+            top: 8px;
+
+            svg {
+                fill: @color-bg-1;
+            }
+        }
+    }
+}
+
+@media screen {
+    @media (max-width: @sm-max) {
+        padding: 60px 0;
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        figure {
+            margin-bottom: 17px;
+        }
+
+        .btn-primary {
+            margin-bottom: 2px;
+            transition: background .3s ease-out-quad;
+        }
+
+        .schedule {
+            display: none;
+            padding: 12px 20px 32px;
+        }
+    }
+
+    @media (min-width: @sm-min) {
+        padding: 120px 0 170px;
+
+        .btn-primary {
+            cursor: default;
+
+            .svg-arrow-down {
+                display: none;
+            }
+        }
+
+        .schedule {
+            padding: 0 0 22px;
+            display: block !important;
+
+            li {
+                padding: 10px 20px;
+                background: #fff1f7;
+
+                &:nth-child(2n) {
+                    background: #ffe3ef;
+                }
+            }
+        }
+    }
+}

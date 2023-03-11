@@ -1,0 +1,274 @@
+& {
+    position: relative;
+    font-size: 14px;
+    color: @color-txt-1;
+    background: url('@{path-img}/bg-pattern.jpg');
+    background-position: 50%;
+
+    .container {
+        padding-top: 59px;
+        padding-bottom: 59px;
+    }
+
+    address {
+        font-style: normal;
+    }
+
+    a {
+        transition: color .15s ease;
+
+        &:hover {
+            color: lighten(@color-txt-4, 10%);
+        }
+    }
+
+    .tlt-footer,
+    .lnk-tel {
+        font-family: @font-1;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .address-content {
+        margin: 16px 0;
+    }
+
+    .lnk-tel {
+        display: inline-block;
+        font-size: 18px;
+        transform-origin: 25% 50%;
+        transition: transform .3s ease, color .15s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .svg-logo {
+        #ani .flip();
+
+        display: block;
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-menu {
+        font-weight: bold;
+        font-family: @font-1;
+        text-transform: uppercase;
+
+        li {
+            line-height: 2em;
+        }
+    }
+
+    .social-media {
+        font-weight: bold;
+        font-family: @font-1;
+
+        li {
+            line-height: 3em;
+        }
+
+        a {
+            display: inline-block;
+
+            &:hover svg {
+                transform: scale(1.2);
+            }
+
+            [class^=svg-] {
+                margin-right: 10px;
+
+                svg {
+                    fill: @color-bg-1;
+                    transition: transform .3s ease;
+                }
+            }
+
+            .svg-youtube {
+                width: 32px;
+                height: 32px;
+            }
+
+            .svg-instagram {
+                width: 30px;
+                height: 30px;
+            }
+
+            .svg-facebook {
+                width: 32px;
+                height: 34px;
+            }
+
+            .svg-whatsapp {
+                width: 31px;
+                height: 31px;
+            }
+        }
+    }
+
+    .copyright {
+        color: fade(@color-txt-1, 50%);
+        line-height: 60px;
+        text-align: center;
+        background: rgba(@color-bg-2, 50%);
+    }
+
+    .arrow-top {
+        font-size: 12px;
+        line-height: 1.2em;
+        color: @color-txt-4;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 40px;
+        position: absolute (-68px - 28px) auto auto 50%;
+        background: url('@{path-img}/arrow-up.png') 50% 5px / auto 30px no-repeat;
+        transform: translateX(-50%);
+        transition: background .25s ease, color .25s ease;
+
+        .desktop &:hover {
+            background-position-y: 0;
+            color: @color-txt-4;
+        }
+    }
+
+    .svg-phone {
+        width: 28px;
+        height: 28px;
+        fill: @color-1;
+        margin-right: 8px;
+    }
+
+    .dev {
+        text-align: right;
+        color: @color-1;
+        background: @color-2;
+        font-size: 14px;
+
+        .dev-container {
+            display: block;
+            margin: 0 auto;
+            max-width: 1170px;
+            padding: 5px 15px;
+        }
+
+        .svg-whatsapp {
+            width: 20px;
+            height: 20px;
+            fill: @color-4;
+        }
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        padding-bottom: 0;
+        padding-top: 40px;
+        background-position-x: 50%;
+
+        &:before {
+            content: '';
+            position: absolute 0;
+            background: transparent;
+            background: linear-gradient(90deg, rgba(0, 0, 0, .3) 0%, rgba(0,0,0,0) 41%);
+        }
+
+        .container {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .footer-menu {
+            text-align: right;
+        }
+
+        .social-media {
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+            li {
+                display: inline-block;
+            }
+
+            .youtube {
+                order: 1;
+
+                .svg-youtube {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            .facebook {
+                order: 2;
+
+                .svg-facebook {
+                    width: 29px;
+                    height: 30px;
+                }
+            }
+
+            .instagram {
+                order: 3;
+
+                .svg-instagram {
+
+                }
+            }
+
+            .whatsapp {
+                order: 4;
+
+                .svg-whatsapp {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .copyright {
+            background: transparent;
+            line-height: normal;
+        }
+
+        .dev {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 13px;
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        .footer-menu {
+            li {
+                line-height: normal;
+            }
+
+            a {
+                display: inline-block;
+                position: relative;
+                padding-bottom: 5px;
+                margin-bottom: 10px;
+
+                &:hover:before {
+                    width: 100%;
+                }
+
+                &:before {
+                    content: '';
+                    height: 2px;
+                    width: 0;
+                    background: @color-bg-1;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    transition: width .25s ease;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@path-font: '../fonts';
+
+#m {
+    .font-face (@family, @fileName, @weight: normal, @style: normal) {
+        @font-face {
+            font-family: @family;
+            font-weight: @weight;
+            font-style: @style;
+            font-display: swap;
+
+            src: url('@{path-font}/@{fileName}.woff2') format('woff2'),
+                 url('@{path-font}/@{fileName}.woff') format('woff');
+        }
+    }
+}
+
+#m .font-face('Lato', 'lato-light', 300, normal);
+#m .font-face('Lato', 'lato-regular', normal, normal);
+#m .font-face('Lato', 'lato-bold', bold, normal);
+#m .font-face('Open Sans', 'opensans-bold', bold, normal);
+#m .font-face('Open Sans', 'opensans-regular', normal, normal);
+#m .font-face('Open Sans', 'opensans-semibold', 600, normal);
+#m .font-face('Old Stardard', 'oldstandard-italic-webfont', normal, normal);

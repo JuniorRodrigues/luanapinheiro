@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /h/
+Disallow: /layout/
+
+Sitemap: https://luanapinheiro.com.br/sitemap.xml

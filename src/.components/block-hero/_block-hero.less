@@ -1,0 +1,46 @@
+& {
+    position: relative;
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        .hero figure {
+            display: none;
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        .hero {
+            position: relative;
+
+            .tlt-section {
+                .text-gradient();
+
+                display: inline-block;
+                font-size: responsive 40px 60px;
+                font-range: 768px @xlg-min;
+            }
+        }
+    }
+
+    @media (min-width: @xlg-min) {
+        .wrap-tlt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -34%);
+        }
+
+        & + .container-parallax .box-content {
+            padding-top: 90px;
+            padding-bottom: 100px;
+        }
+
+        .tlt-selection {
+            font-size: responsive 60px 70px;
+            font-range: @xlg-min 1500px;
+        }
+    }
+}

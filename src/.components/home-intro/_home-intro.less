@@ -1,0 +1,47 @@
+& {
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    background: url('@{path-img}/luana-pinheiro-intro.jpg') 90% 100% / auto 100% no-repeat;
+    color: @color-txt-9;
+
+    .tlt-section {
+        font-size: responsive 34px 70px;
+    }
+
+    blockquote {
+        font-size: responsive 19px 24px;
+
+        .author {
+            font-size: responsive 19px 24px;
+            text-align: right;
+            margin-top: 44px;
+            color: @color-txt-4;
+        }
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: 559px) {
+        position: relative;
+        color: lighten(@color-txt-5, 10%);
+        background: url('@{path-img}/bg-intro_mobile.jpg') 100% 0 ~'/' cover no-repeat;
+
+        &:after {
+            content: '';
+            position: absolute auto 0 0;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(102,51,153,0) 0%, rgba(255,51,153,0.05) 100%);
+        }
+    }
+
+    // SPECIFIC
+    @media (min-width: 560px) and (max-width: @md-max) {
+        .box-txt {
+            padding: 20px;
+            background: rgba(255, 255, 255, .5);
+        }
+    }
+}

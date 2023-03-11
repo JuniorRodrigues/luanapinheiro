@@ -1,0 +1,22 @@
+_AUX
+node_modules
+.tmp
+.vscode
+package-lock.json
+yarn.lock
+build
+GTmetrix-report-2020-09-16.pdf
+
+_AUX/*
+!.gitkeep
+
+**/*.map
+
+# OSX Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows image file caches
+Thumbs.db

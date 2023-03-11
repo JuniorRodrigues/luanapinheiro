@@ -1,0 +1,13 @@
+{% component 'block-hero', params={ title: 'Dúvidas', tltExtension: 'Frequentes', img: 'hero-duvidas.jpg', alt: 'cabeçalho de dúvidas' } %}
+<div class="container-parallax">
+    <div class="wrap-duvidas container box-content">
+        <dl class="qa">
+            {% for duvida in duvidas %}
+            <dt>{{ loop.index }}. {{ duvida.question | safe }}</dt>
+            <dd>{{ duvida.answer | safe }}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+
+    {% component 'block-galery', aulas, { titleExtension: false } %}
+</div>

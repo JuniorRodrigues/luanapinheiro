@@ -1,0 +1,36 @@
+{% for aula in aulas.photos %}
+    {% if aula.id == targetClass %}
+        {% set data = aula %}
+
+        {% component 'block-hero', params={ title: 'Aula de ' + data.titleHightlight, img: 'hero-aulas.jpg', alt: 'cabeçalho ' + data.title } %}
+        <div class="container-parallax"> {# fechado no final deste arquivo #}
+        <div class="wrap-content box-content">
+            <div class="container">
+                <figure class="hero-interna"> {# data-ani-type="fade" #}
+                    <picture>
+                        <source srcset="{{ assets }}/images/{{ data.srcHero }}" media="(min-width: 768px)" src="{{ assets }}/images/{{ data.srcHero }}">
+                        <img src="{{ assets }}/images/{{ data.srcHero }}" alt="{{ data.altHero }}" data-ani-type="arise-right" data-ani-time=".6">
+                    </picture>
+                </figure>
+                <div class="box-txt" data-ani-type="fade-right" data-ani-delay=".5">
+                    <div class="description">
+                        {{ data.description | safe }}
+                    </div>
+
+                    {% if data.requirements %}
+                        <span class="subtitle">Como se vestir?</span>
+                        {{ data.requirements | safe  }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% set titleExtension = [ 'de', data.title ] | join(' ') %}
+        {% component 'block-galery', professores, { title: 'Professores', titleExtension: titleExtension, filter: targetClass }, '.veil' %}
+    {% endif %}
+{% endfor %}
+
+    {#% component 'block-schedule', schedules, { class: targetClass, image: false } %#}
+    {% component 'block-schedule', schedules, { class: 'todas' } %}
+
+    {% component 'block-galery', aulas, { title: 'Temos outras aulas de dança para você', titleExtension: false, url: 'aulas' } %}
+</div> {# aberto dentro do loop aulas #}

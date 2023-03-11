@@ -1,0 +1,226 @@
+.btn {
+    position: relative;
+    display: inline-block;
+    font-family: @font-1;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    padding: 10px 20px 12px;
+
+    &.btn-default {
+        .gradient();
+
+        overflow: hidden;
+        min-width: 120px;
+        color: @color-txt-1;
+        font-weight: bold;
+        border-radius: 4px;
+        z-index: 1;
+
+        transition: background .35s ease-out-quad;
+
+        figure {
+            display: none;
+        }
+
+        .svg-download {
+            width: 29px;
+            height: 29px;
+            float: right;
+
+            svg {
+                fill: @color-bg-1;
+            }
+        }
+
+        .desktop[id^="aula_"] [data-component="block-schedule"] &:hover,
+        .desktop#aulas_index [data-component="block-schedule"] &:hover {
+            background-position: 253px;
+        }
+
+        .desktop & {
+            &:hover {
+                background-position: 120px;
+            }
+        }
+    }
+
+    &.btn-primary {
+        color: @color-txt-1;
+        background: @color-bg-3;
+        text-align: left;
+        font-weight: bold;
+
+        &.active {
+            background: @color-bg-4;
+        }
+    }
+
+    @media (max-width: @sm-max) {
+        &.btn-sm-large {
+            width: 100%;
+        }
+    }
+}
+
+.tlt-section {
+    font-size: responsive 34px 40px;
+
+    font-family: @font-1;
+    font-weight: bold;
+    letter-spacing: -.01em;
+    line-height: 1.2em;
+    margin-bottom: 28px;
+    color: @color-tlt-3;
+
+    .highlight {
+        display: block;
+        font-weight: 300;
+        color: @color-tlt-4;
+    }
+
+    &.tlt-main {
+        margin-top: 53px;
+    }
+}
+
+.subtitle {
+    display: block;
+    font-family: @font-1;
+    margin-bottom: .5em;
+    font-size: responsive 18px 24px;
+    font-weight: bold;
+    color: @color-tlt-3;
+}
+
+.mobile-section () {
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    height: auto;
+
+    @media (max-width: @sm-max) {
+        padding-top: 60px;
+    }
+}
+
+.no-gap {
+    padding: 0;
+
+    .row {
+        margin: 0;
+    }
+
+    [class^=col] {
+        padding: 0;
+    }
+}
+
+/* Slick Slider */
+.slick-disabled {
+    cursor: default;
+}
+
+.slick-prev,
+.slick-next {
+    width: 26px;
+    height: 41px;
+
+    &:before {
+        opacity: 1;
+        display: block;
+        height: 100%;
+        content: '';
+        background-size: contain;
+        transition: transform .25s ease;
+        background-repeat: no-repeat;
+    }
+
+    &:hover:not(.slick-disabled):before {
+        transfor-origin: 50% 50%;
+        transform: scale(1.2);
+    }
+}
+
+.slick-prev {
+    left: -30px;
+
+    &:before {
+        background-image: url('@{path-img}/arrow-prev.png');
+    }
+}
+
+.slick-next {
+    right: -30px;
+
+    &:before {
+        background-image: url('@{path-img}/arrow-next.png?v2');
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) }
+    40%, 60% { transform: translateY(-8px) }
+}
+
+#ani {
+    .flip() {
+        &:hover svg {
+            perspective: 900px;
+            transform: rotateY(360deg);
+        }
+
+        svg {
+            transition: transform .9s cubic-bezier(.19,1,.22,1);
+        }
+    }
+}
+
+.gradient(@startColor: rgba(102,51,153,1), @endColor: rgba(255,51,153,1)) {
+    background: @startColor;
+    background: linear-gradient(45deg, @startColor 0%, @endColor 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#663399', endColorstr='#ff3399', GradientType=1 );
+}
+
+.text-gradient () {
+    background: -webkit-linear-gradient(left, rgba(102,51,153,1) 0%, rgba(102,51,153,1) 24%, rgba(255,93,177,1) 88%, rgba(255,93,177,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        .slick-slider {
+            .slick-slide {
+                padding: 0 5px !important;
+            }
+
+            .slick-prev,
+            .slick-next {
+                height: 100%;
+                bottom: 0;
+                top: auto;
+                transform: none;
+
+                &:before {
+                    background: none;
+                }
+            }
+
+            .slick-prev {
+                left: 0;
+            }
+            .slick-next {
+                right: 0;
+            }
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        .container-parallax {
+            position: relative;
+            background: @color-bg-1;
+        }
+    }
+}

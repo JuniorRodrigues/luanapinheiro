@@ -1,0 +1,67 @@
+& {
+    p {
+        margin-bottom: 1.5em;
+    }
+
+    [data-component="block-aulas"] {
+        padding-top: 28px;
+    }
+
+    .wrap-content {
+        padding-bottom: 28px;
+    }
+
+    .subtitle {
+        font-size: responsive 18px 20px;
+    }
+
+    .box-txt {
+        ul {
+            margin-bottom: 2.3em;
+        }
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        [data-component="block-galery"][data-component-params*="aulas"] {
+            padding-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        .subtitle {
+            margin-bottom: .9em;
+        }
+
+        .hero-interna {
+            margin-bottom: 17px;
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        .box-content {
+            padding-bottom: 90px;
+        }
+
+        .hero-interna,
+        .box-txt {
+            float: left;
+            width: 50%;
+        }
+
+        .box-txt {
+            padding-left: 100px;
+        }
+    }
+
+    @media (min-width: @xlg-min) {
+        .box-content {
+            padding-bottom: 120px;
+        }
+    }
+}

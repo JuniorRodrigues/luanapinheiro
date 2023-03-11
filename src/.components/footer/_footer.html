@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-md-3 col-sm-3">
+            <a href="{{ menu[0].url }}" title="{{ siteName }}" data-ani-type="fade" class="svg-logo" data-ani-type="fade"><svg><use xlink:href="#svg-logo-dark-footer" xlink:title="{{ siteName }}" /></svg></a>
+        </div>
+        <div class="col-xs-6 col-sm-2 pull-right-sm">
+            <nav class="footer-menu" data-ani-type="fade-right">
+                <ul>
+                    {% for item in menu %}
+                    <li><a href="{{ item.url }}" title="{{ item.text }}">{{ item.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+        <div class="col-xs-12 col-sm-4 hide-mobile">
+            <address data-ani-type="fade-right">
+                <h4 class="tlt-footer">Endereço</h4>
+                <p class="address-content">{{ address | safe }}</p>
+                <a class="lnk-tel hide-mobile" href="tel:114743-3688" title="Telefone de contato">
+                    <svg class="svg-phone"><use xlink:href="#svg-phone" xlink:title="telefone" /></svg>
+                    (11) 4743-3688
+                </a>
+            </address>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <ul class="social-media" data-ani-type="fade-right">
+                {% for item in network %}
+                <li class="{{ item.id }}">
+                    <a href="{{ item.url }}" target="_blank" title="{{ item.title }}" rel="noopener">
+                        <i class="svg-{{ item.id }}">
+                            <svg><use xlink:href="#svg-{{ item.id }}" xlink:title="{{ item.name }}" /></svg>
+                        </i>
+                        <span class="hide-mobile">{{ item.name }}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<p class="copyright">©2020 <span class="hide-mobile">Espaço Luana Pinheiro. </span>Todos os direitos reservados.</p>
+
+<a href="#main-header" class="arrow-top" data-ani-type="fade-top">
+    <span>
+        Voltar<br>
+        ao Topo
+    </span>
+</a>

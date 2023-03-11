@@ -1,0 +1,42 @@
+& {
+    p {
+        margin-bottom: 1.6em;
+
+        & + p:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+
+    [data-component="block-aulas"] {
+        padding-top: 28px;
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        margin-bottom: 82px;
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        .subtitle {
+            margin-bottom: .9em;
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        [data-component="block-galery"][data-component-params*=slider] {
+            padding-bottom: 0;
+        }
+    }
+
+    @media (min-width: @xlg-min) {
+        .container-parallax  .box-content {
+            font-size: 18px;
+            padding-bottom: 0;
+        }
+    }
+}

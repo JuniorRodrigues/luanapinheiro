@@ -1,0 +1,204 @@
+& {
+    background: @color-bg-1;
+    color: @color-txt-5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &.mandala {
+        background: url('@{path-img}/small-mandala-top.png') 100% 0 no-repeat,
+                url('@{path-img}/small-mandala-bottom.png') 0 100% no-repeat;
+    }
+
+    &.veil {
+        background: url('@{path-img}/bg-events.jpg') 50% 50% ~'/' cover no-repeat @color-bg-1;
+    }
+
+    &[data-component-params*=slider] {
+        background: none;
+    }
+
+    body:not(#index) & .tlt-section {
+        font-size: responsive 24px 30px;
+
+        .highlight {
+            margin-top: .1em;
+            font-size: responsive 28px 32px;
+        }
+    }
+
+    .no-slider {
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+            margin-bottom: 120px;
+        }
+    }
+
+    .wrap-slider:not(.no-slider) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .main-description {
+        font-size: responsive 16px 18px;
+        margin-bottom: 1.8em;
+    }
+
+    .datetime {
+        display: block;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: @color-txt-4;
+
+        .highlight {
+            font-size: responsive 42px 58px;
+            font-range: @sm-min @lg-max;
+            font-family: @font-3;
+        }
+    }
+
+    .item {
+        .item-link {
+            display: block;
+            transition: transform .4s ease;
+
+            .desktop &:hover {
+                transform: scale(1.05);
+
+                & + .title {
+                    color: @color-txt-4;
+
+                    &:before {
+                        width: 62%;
+                    }
+                }
+            }
+        }
+
+        .title {
+            .desktop &:hover {
+                color: @color-txt-4;
+            }
+        }
+    }
+
+    .img-container {
+        margin-bottom: 17px;
+
+        img {
+            height: auto;
+        }
+    }
+
+    .title {
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        font-family: @font-1;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: normal;
+        color: @color-tlt-3;
+        transition: color .25s ease;
+
+        &:before {
+            position: absolute;
+            bottom: 0;
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: rgba(@color-bg-3, 20%);
+            transition: width .3s cubic-bezier(0.25, 0.46, 0.45, 0.9399999999999999);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .resume {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .icon-link {
+        position: relative;
+        top: 2px;
+        width: 1em;
+        height: 1em;
+        margin-left: .5em;
+        fill: currentColor;
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        .mobile-section;
+
+        .no-slider {
+            justify-content: center;
+
+            .item {
+                max-width: 360px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &:last-child {
+            padding-bottom: 127px;
+        }
+
+        &.mandala {
+            background-size: 180px auto;
+
+            #index & {
+                background: url(../images/small-mandala-top.png) 100% 0 ~"/" 180px auto no-repeat;
+            }
+        }
+
+        &.veil {
+            background-image: url('@{path-img}/bg-events_mobile.jpg');
+
+            #index & {
+                background: #fff;
+            }
+        }
+
+        .no-slider .item {
+            margin-bottom: 60px;
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        background: url('@{path-img}/big-mandala-top.png') 100% 0 no-repeat,
+                    url('@{path-img}/big-mandala-bottom.png') 0 100% no-repeat;
+
+        background-color: @color-bg-7;
+        padding: 80px 0 130px;
+
+        &:last-child {
+            padding-bottom: 170px;
+        }
+
+        .slick-slide {
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .title,
+            .resume {
+                user-select: text;
+            }
+        }
+    }
+}

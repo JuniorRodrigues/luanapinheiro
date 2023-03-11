@@ -1,0 +1,53 @@
+& {
+    p {
+        margin-bottom: 1.6em;
+    }
+
+    .container-galery {
+        margin-top: 40px;
+        padding-top: 50px;
+        padding-bottom: 60px;
+        background: url('@{path-img}/bg-events_mobile.jpg') 50% 0 / cover no-repeat;
+
+    }
+
+    [data-component=block-galery]:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        .subtitle {
+            margin-bottom: .9em;
+        }
+
+        .container-space {
+            padding-bottom: 148px;
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        .container-parallax  .box-content {
+            padding-top: 10px;
+            padding-bottom: 60px;
+        }
+
+        .container-space {
+            padding-bottom: 165px;
+        }
+    }
+
+    @media (min-width: @xlg-min) {
+        .container-parallax  .box-content {
+            padding-top: 80px;
+            padding-bottom: 30px;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{% component 'block-hero', params={ title: 'Contato', tltExtension: 'e Localização', img: 'hero-contato.jpg', alt: 'cabeçalho de contato' } %}
+<div class="container-parallax">
+    <div class="wrap-contact">
+        <div class="box-txt container" data-ani-type="fade">
+            <div class="row">
+                <div class="col-lg-10">
+                    <p>Seja para dançar como hobby, como terapia, profissionalmente ou se deseja contratar uma apresentação de dança, você merece o melhor atendimento e qualidade. Entre em contato conosco, tire suas dúvidas, agende sua aula experimental ou faça o orçamento para seu evento, será um prazer atendê-lo.</p>
+                </div>
+            </div>
+            <address>
+                <h2 class="subtitle">Endereço</h2>
+                <p>{{ address | safe }}</p>
+            </address>
+            <h2 class="subtitle">Horários</h2>
+            <p>{{ hours | safe }}</p>
+            <ul class="contact-phones">
+                <li>
+                    <a class="text-tel" href="tel:1147433688">
+                        <svg class="svg-phone"><use xlink:href="#svg-phone" xlink:title="telefone" /></svg>
+                        11 4743-3688
+                    </a>
+                </li>
+                <li>
+                    <a class="text-tel" href="https://api.whatsapp.com/send?phone=5511973013389&text=Ol%C3%A1%20Luana%20Pinheiro%20gostaria%20de%20saber%20mais%20sobre%20">
+                        <svg class="svg-whatsapp"><use xlink:href="#svg-whatsapp" xlink:title="WhatsApp" /></svg>
+                        11 9 7301-3389<span class="alert">*</span>
+                    </a>
+                </li>
+            </ul>
+            <a class="text-mail" href="mailto:luanaealp@hotmail.com">
+                <svg class="svg-email"><use xlink:href="#svg-email" xlink:title="e-mail" /></svg>
+                <span class="txt">luanaealp@hotmail.com</span>
+            </a>
+            <p class="obs">
+                <span class="alert">*</span> Atendimento por whatsapp de segunda a sexta das 13h30 às 21h e sábado das 9h às 16h
+            </p>
+        </div>
+        <iframe id="iframe-map" data-ani-type="fade" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1828.8359621778527!2d-46.31401209619628!3d-23.54429950447558!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a147f66ad07adb0!2sEspa%C3%A7o+Art%C3%ADstico+Luana+Pinheiro!5e0!3m2!1spt-BR!2sbr!4v1559146833404!5m2!1spt-BR!2sbr" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    {% component 'block-galery', aulas, { titleExtension: false } %}
+</div>

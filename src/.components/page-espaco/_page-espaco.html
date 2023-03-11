@@ -1,0 +1,18 @@
+{% component 'block-hero', params={ title: 'O Espaço', tltExtension: 'Luana Pinheiro', img: 'hero-espaco.jpg', alt: 'cabeçalho da página espaço' } %}
+<div class="container-parallax">
+    <div class="box-content container" data-ani-type="fade-top">
+        <p>O <strong>Espaço Luana Pinheiro</strong> é a 1ª escola de Suzano especializada na arte da <strong>dança do ventre</strong> onde o aluno tem a possibilidade de se capacitar profissionalmente no mercado de trabalho através do estudo contínuo que a escola lhe oferece, oferecemos turmas do nível iniciante ao profissional com uma diversidade de dias e horários para melhor atendê-los.</p>
+        <p>A escola também oferece outras modalidades de dança como <strong>ballet clássico</strong> e <strong>contemporâneo</strong>.</p>
+        <p>Contamos com uma equipe de professores e estagiários altamente capacitados, estrutura aconchegante com recepção/sala de espera com TV, Wi-Fi, lojinha com roupas e acessórios para dança e representação <strong>Capézio</strong>, 3 banheiros e 3 salas de aula!</p>
+        <p>Aulas lúdicas e educativas para crianças a partir de 2 anos de idade!</p>
+        <p>A dança nos traz muitos benefícios como a melhora da autoestima, coordenação motora, alongamento, musicalidade, estimula a criatividade, disciplina e ainda ajuda no emagrecimento.</p>
+        <p>Desde 2001 ensinando arte com amor!</p>
+        <p>Agende já uma aula experimental e encante-se!</p>
+    </div>
+    <div class="container-space">
+        {% for space in spaces %}
+        <h3 class="subtitle container" data-ani-type="chars" data-ani-show="70">{{ space.name }}</h3>
+        {% component 'block-space', space, params={ id: space.id } %}
+        {% endfor %}
+    </div>
+</div>

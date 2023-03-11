@@ -1,0 +1,183 @@
+& {
+    address {
+        font-style: normal;
+    }
+
+    p {
+        margin-bottom: 2em;
+    }
+
+    .contact-phones li {
+        margin-bottom: 5px;
+
+        a {
+            display: inline-block;
+        }
+    }
+
+    .text-tel {
+        font-size: 20px;
+        font-weight: bold;
+        color: @color-txt-3;
+    }
+
+    .text-mail {
+        display: inline-block;
+        color: @color-txt-4;
+        margin-top: 1.5em;
+        margin-bottom: 3em;
+
+        .txt {
+            vertical-align: middle;
+        }
+    }
+
+    .svg-whatsapp {
+        width: 24px;
+        height: 24px;
+        fill: #00cc33;
+        margin-right: 5px;
+    }
+
+    .svg-phone {
+        width: 26px;
+        height: 26px;
+        fill: @color-bg-4;
+        margin-right: 3px;
+    }
+
+    .svg-email {
+        width: 25px;
+        height: 25px;
+        fill: @color-bg-4;
+        margin-right: 4px;
+    }
+
+    .obs {
+        line-height: 1.4em;
+        font-size: 13px;
+        color: lighten(@color-txt-5, 20%)
+    }
+
+    .alert {
+        color: @color-txt-4;
+        font-weight: bold;
+        font-size: 16px;
+        vertical-align: top;
+    }
+}
+
+@media screen {
+    // MAX
+    @media (max-width: @sm-max) {
+        .text-mail span {
+            text-decoration: underline;
+        }
+    }
+
+    @media (max-width: @lg-max) {
+        #iframe-map {
+            width: 100%;
+            height: 300px;
+        }
+
+        @media (min-width: @sm-min) {
+            .wrap-contact {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .box-txt {
+                order: 2
+            }
+
+            #iframe-map {
+                order: 1;
+                margin-bottom: 60px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    // MIN
+    @media (min-width: @sm-min) {
+        .box-txt {
+            svg {
+                transition: transform .3s ease;
+            }
+
+            a {
+                .desktop &:hover svg {
+                    transform: scale(1.2);
+                }
+            }
+
+            .contact-phones a {
+                transition: color .15s ease;
+
+                .desktop &:hover {
+                    color: @color-txt-4;
+                }
+            }
+
+            .text-mail {
+                transition: color .2s ease;
+
+                .txt {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                .txt:before {
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: 1px;
+                }
+
+                .txt:before {
+                    width: 0;
+                    background: @color-bg-4;
+                    transition: width 1s cubic-bezier(0.190,1.000,0.220,1.000);
+                }
+
+                .desktop &:hover .txt:before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media (min-width: @lg-min) {
+        .wrap-contact {
+            display: flex;
+        }
+
+        .box-txt,
+        #iframe-map {
+            width: 50%;
+            flex-basis: 50%;
+        }
+
+        #iframe-map {
+            order: 1;
+        }
+
+        .box-txt {
+            order: 2;
+            padding: 0 90px 90px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media (min-width: @xlg-min) {
+        .box-txt {
+            padding-top: 90px;
+        }
+    }
+}

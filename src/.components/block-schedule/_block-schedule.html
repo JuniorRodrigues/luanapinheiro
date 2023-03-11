@@ -1,0 +1,61 @@
+{#
+    params
+        class
+            Arguments: 'todas', name-of-class
+
+        image
+            Arguments: [ boolean ]
+            Deafult: True
+#}
+
+{% for schedule in schedules %}
+    {% if schedule.class == params.class %}
+        {% set data = schedule %}
+
+        <div class="container">
+            <div class="col-md-6">
+                <h2 class="tlt-section" data-ani-type="chars" data-ani-show="70">Turmas e Horários</h2>
+                {# % if params.image != false %}
+                <figure data-ani-type="fade">
+                    <picture>
+                        <source srcset="{{ pathImg }}/{{ data.srcCoverLg }}" media="(min-width: 768px)" src="{{ pathImg }}/{{ data.srcCoverLg }}">
+                        <img src="{{ pathImg }}/{{ data.srcCover }}" alt="{{ data.altCover }}">
+                    </picture>
+                </figure>
+                {% endif % #}
+
+                {% if data.description %}
+                <div class="box-description">
+                    {{ data.description | safe }}
+                </div>
+                {% endif %}
+
+                {% if data.levels %}
+                <div class="flex-container">
+                    {% for level in data.levels %}
+                    <div class="col-flex-xs-12 col-flex-sm-6 col-flex-md-4" data-ani-type="fade-top">
+                        <button class="btn btn-primary">
+                            {{ level.name }}
+                            <i class="svg-arrow-down" aria-hidden="true"><svg><use xlink:title="" xlink:href="#svg-arrow-down" /></svg></i>
+                        </button>
+                        <ul class="schedule">
+                            {% for item in level.schedules %}
+                            <li>{{ item | safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div data-ani-type="fade">
+                    <a href="https://docs.google.com/spreadsheets/d/1fd0bAaNbmqSc2P8DClmxpxm13J1Z10_P9U8BaamYg3M" class="btn btn-default btn-sm-large" target="_blank">
+                        Baixe a grade das aulas
+                        <i class="svg-download" aria-hidden="true"><svg><use xlink:title="Download" xlink:href="#svg-download" /></svg></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,30 @@
+{% for professor in professores.photos %}
+    {% if professor.id == targetClass %}
+        {% set data = professor %}
+
+        {% component 'block-hero', params={ title: data.titleHightlight, img: 'hero-professores.jpg', alt: 'cabeçalho do professor' } %}
+        <div class="container-parallax"> {# fechado no final deste arquivo #}
+        <div class="wrap-content box-content">
+            <div class="container">
+                <figure class="hero-interna"> {# data-ani-type="fade" #}
+                    <picture>
+                        <source srcset="{{ assets }}/images/{{ data.srcHero }}" media="(min-width: 768px)" src="{{ assets }}/images/{{ data.srcHero }}">
+                        <img src="{{ assets }}/images/{{ data.srcHero }}" alt="{{ data.altHero }}" data-ani-type="arise-right" data-ani-time=".6">
+                    </picture>
+                </figure>
+                <div class="box-txt" data-ani-type="fade-right" data-ani-delay=".5">
+                    <div class="description">
+                        {{ data.description | safe }}
+                    </div>
+
+                    {% if data.requirements %}
+                        <span class="subtitle">Requerimentos</span>
+                        {{ data.requirements | safe  }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+    {% component 'block-galery', professores, { titleExtension: false }, '.veil' %}
+</div> {# aberto dentro do loop aulas #}

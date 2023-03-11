@@ -1,0 +1,34 @@
+{#
+    PARAMS
+        img
+            Required: yes
+            Type: [ string ]
+
+        alt
+            Required: yes
+            Type: [ string ]
+
+        title
+            Required: yes
+            Type: [ string ]
+            Define o texto do título
+
+        tltExtension
+            Required: no
+            type: [ string ]
+            Adiciona complemento para o título em outra fonte com quebra de linha
+#}
+
+<div class="hero hero-duvidas" data-ani-type="sm-parallax">
+    <figure>
+        <img src="{{ pathImg }}/{{ params.img }}" alt="{{ params.alt }}">
+    </figure>
+    <div class="wrap-tlt container">
+        <h1 class="tlt-section tlt-main" data-ani-type="fade-right">
+            {{ params.title | safe }}
+            {% if params.tltExtension %}
+            <span class="highlight">{{ params.tltExtension | safe }}</span>
+            {% endif %}
+        </h1>
+    </div>
+</div>
